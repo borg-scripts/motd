@@ -25,7 +25,7 @@ LAST3USERS=`last -3iw | head -3`
 echo -e "\033[1;32m
 <%=@server['datacenter']%> <%=@server['environment']%> <%=@server['tld']%>
 
-<%=@server.motd.banner.replace(/(^[\r\n]+|[\r\n]+$)/, '').replace('\\','\\\\\\').replace('\\\\\\\\','\\\\\\\\\\\\\\\\\\').replace(/`/, '\\\`').replace('"', '\\\"')%>
+<%=@server.motd.banner.replace(/(^[\r\n]+|[\r\n]+$)/g, '').replace(/\\/g,'\\\\\\').replace(/`/g, '\\\`').replace(/"/g, '\\\"') %>
 
          <%=@server['type']%><%=@server['instance']%>
 
