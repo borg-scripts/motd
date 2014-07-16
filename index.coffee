@@ -1,6 +1,6 @@
 module.exports = ->
   # snuff out the standard motd
-  @then @execute, "test -f /etc/motd && rm /etc/motd; exit 0", sudo: true
+  @then @execute, "test -f /etc/motd && sudo rm /etc/motd; exit 0"
   # hack to block auto-rebuild
   @then @execute, "mkdir -p /etc/motd", sudo: true
 
