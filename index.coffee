@@ -4,8 +4,9 @@ module.exports = ->
   # hack to block auto-rebuild
   @then @execute, "mkdir -p /etc/motd", sudo: true
 
-  @default openssh: server: print_motd: 'no'
-  @default openssh: server: print_last_log: 'no'
+  @default openssh: server:
+    PrintMotd: 'no'
+    PrintLastLog: 'no'
 
   @then @execute, "sed -i 's/^session    optional   pam_motd\.so/#session    optional   pam_motd.so/' /etc/pam.d/login", sudo: true
 
