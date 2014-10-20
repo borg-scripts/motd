@@ -23,11 +23,9 @@ PRIVATE_IP=`ifconfig eth0 | grep inet | grep -v inet6 | awk '{print $2}' | cut -
 LAST3USERS=`last -3iw | head -3`
 
 echo -e "\033[1;32m
-<%=@server['datacenter']%> <%=@server['environment']%> <%=@server['tld']%>
-
 <%=@server.motd.banner.replace(/(^[\r\n]+|[\r\n]+$)/g, '').replace(/\\/g,'\\\\\\').replace(/`/g, '\\\`').replace(/"/g, '\\\"') %>
 
-         <%=@server['type']%><%=@server['instance']%>
+<%=@server['datacenter']%> <%=@server['environment']%> <%=@server['tld']%> <%=@server['type']%><%=@server['instance']%>
 
 \033[0;35m+++++++++++++++++: \033[0;37mSystem Data\033[0;35m :+++++++++++++++++++
 \033[0;35m+ \033[0;37mProcessor \033[0;35m= \033[1;32m${CPU_COUNT}x${CORE_COUNT}${CPU_MODEL}
