@@ -38,8 +38,8 @@ echo -e "\033[1;32m
 \033[0;35m+++++++++++++: \033[0;37mHelpful Information\033[0;35m :+++++++++++++++
 \033[0;35m+\033[0;37m !!! NOTICE: ALL YOUR SYSTEM ARE BELONG TO BORG !!!
 \033[0;35m+\033[0;37m YOUR CHANGES WILL BE SUBJECT TO PERIODIC OVERRIDE
-\033[0;35m+\033[0;37m   UPDATE THE CHEF REPO IF YOU WANT THEM TO STAY
-\033[0;35m+\033[0;35m last run: \033[1;32m<%= Date.create().format('{yyyy}-{MM}-{dd} {HH}:{mm}:{ss} {tz}') %>
+\033[0;35m+\033[0;37m  UPDATE THE DEVOPS REPO IF YOU WANT THEM TO STAY
+\033[0;35m+\033[0;35m last assimilation: \033[1;32m<%= Date.create().format('{yyyy}-{MM}-{dd} {HH}:{mm}:{ss} {tz}') %>
 \033[0;35m++++++++++++++: \033[0;37mUser Login Roster\033[0;35m :++++++++++++++++
 \033[0;37m`last -5iw | grep -v system | head -n+5 | tail -n+1`
 \033[0;35m+++++++++++++++++++++++++++++++++++++++++++++++++++
