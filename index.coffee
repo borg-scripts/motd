@@ -20,6 +20,13 @@ module.exports = ->
 
   @then @execute, "touch /etc/motd-maint", sudo: true
 
+  @then @template, "/usr/local/etc/dynmotd-art.txt",
+    content: @server.motd.banner
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+    sudo: true
+
   # all bash shell users will see it
   line = "/usr/local/bin/dynmotd"
   @unless "grep -q '#{line}' /etc/profile", =>
