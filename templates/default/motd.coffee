@@ -22,9 +22,9 @@ PUBLIC_IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 PRIVATE_IP=`ifconfig eth0 | grep inet | grep -v inet6 | awk '{print $2}' | cut -d':' -f2`
 LAST3USERS=`last -3iw | head -3`
 
+echo -en "\033[1;32m"
+cat /usr/local/etc/dynmotd-art.txt
 echo -e "\033[1;32m
-$(cat /usr/local/etc/dynmotd-art.txt)
-
   <%=@server['datacenter']%> <%= if @server['subproject'] then @server['subproject']+' ' else '' %><%=@server['environment']%> <%=@server['tld']%> <%=@server['type']%><%=@server['instance']%>
 
 \033[0;35m+++++++++++++++++: \033[0;37mSystem Data\033[0;35m :+++++++++++++++++++
