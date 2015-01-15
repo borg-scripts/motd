@@ -32,10 +32,10 @@ module.exports = ->
 
   # all bash shell users will see it
   line = "/usr/local/bin/dynmotd"
-  @then @execute "grep -q '#{line}' /etc/profile", test: ({code}) =>
+  @then @execute "grep -q '#{line}' /etc/profile", test: ({code}) => if code isnt 0
     @then @execute "echo '#{line}' | sudo tee -a /etc/profile"
 
   # enable color prompts
   line2 = 'export color_prompt=yes'
-  @then @execute "grep -q '#{line2}' /etc/profile", test: ({code}) =>
+  @then @execute "grep -q '#{line2}' /etc/profile", test: ({code}) => if code isnt 0
     @then @execute "echo '#{line2}' | sudo tee -a /etc/profile"
