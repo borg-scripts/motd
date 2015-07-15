@@ -19,7 +19,7 @@ PLATFORM=`uname -orpi`
 OS_VER=`lsb_release -d | cut -f2`
 UPTIME=`uptime | awk '{print $3, $4, $1}'`
 PUBLIC_IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-PRIVATE_IP=`ifconfig eth0 | grep inet | grep -v inet6 | awk '{print $2}' | cut -d':' -f2`
+PRIVATE_IP=`/sbin/ifconfig eth0 | grep inet | grep -v inet6 | awk '{print $2}' | cut -d':' -f2`
 LAST3USERS=`last -3iw | head -3`
 
 echo -en "\033[1;32m"
