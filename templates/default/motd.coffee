@@ -18,7 +18,7 @@ MEM_UTIL="Used: `free -m | head -n 3 | tail -n 1 | awk {'print $3'}`/`free -m | 
 PLATFORM=`uname -orpi`
 OS_VER=`lsb_release -d | cut -f2`
 UPTIME=`uptime | awk '{print $3, $4, $1}'`
-PUBLIC_IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+PUBLIC_IP=`if [ -e "/tmp/pub_ip" ]; then grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" /tmp/pub_ip; else dig +short myip.opendns.com @resolver1.opendns.com; fi`
 PRIVATE_IP=`/sbin/ifconfig eth0 | grep inet | grep -v inet6 | awk '{print $2}' | cut -d':' -f2`
 LAST3USERS=`last -3iw | head -3`
 
